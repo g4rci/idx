@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export interface Ships {
+export interface Planets {
   count: number;
   next: string;
   previous: null;
@@ -12,19 +12,15 @@ export interface Ships {
 
 export interface Result {
   name: string;
-  model: string;
-  manufacturer: string;
-  cost_in_credits: string;
-  length: string;
-  max_atmosphering_speed: string;
-  crew: string;
-  passengers: string;
-  cargo_capacity: string;
-  consumables: string;
-  hyperdrive_rating: string;
-  MGLT: string;
-  starship_class: string;
-  pilots: string[];
+  rotation_period: string;
+  orbital_period: string;
+  diameter: string;
+  climate: string;
+  gravity: string;
+  terrain: string;
+  surface_water: string;
+  population: string;
+  residents: string[];
   films: string[];
   created: Date;
   edited: Date;
@@ -34,8 +30,8 @@ export interface Result {
 @Injectable({
   providedIn: 'root',
 })
-export class ShipsState {
-  url: string = 'https://swapi.dev/api/starships/';
+export class PlanetState {
+  url: string = 'https://swapi.dev/api/planets/';
   headerDict = {
     Authorization: 'none',
     'Access-Control-Allow-Origin': '*',
@@ -46,7 +42,7 @@ export class ShipsState {
 
   constructor(private http: HttpClient) {}
 
-  getShips(): Observable<any> {
+  getPlanets(): Observable<any> {
     return this.http.get(this.url).pipe(
       map((data) => {
         return data;

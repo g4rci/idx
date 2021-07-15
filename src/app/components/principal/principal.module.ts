@@ -8,13 +8,17 @@ import { ShipsComponent } from '../ships/ships.component';
 import { PageOneComponent } from '../page-one/page-one.component';
 import { PageTwoComponent } from '../page-two/page-two.component';
 import { ShipsDetailsComponent } from '../ships/ships-details/ships-details.component';
+import { PageOneDetailsComponent } from '../page-one/page-one-details/page-one-details.component';
+import { PageTwoDetailsComponent } from '../page-two/page-two-details/page-two-details.component'
 
 @NgModule({
   declarations: [
     ShipsComponent,
     ShipsDetailsComponent,
     PageOneComponent,
-    PageTwoComponent
+    PageOneDetailsComponent,
+    PageTwoComponent,
+    PageTwoDetailsComponent
   ],
   imports: [
     CommonModule,

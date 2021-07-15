@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { People, PeopleState } from '../../store/reducers/people.reducer';
 
 @Component({
   selector: 'app-page-one',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageOneComponent implements OnInit {
 
-  constructor() { }
+  public dataList: People[] = [];
 
-  ngOnInit(): void {
+  constructor( private people: PeopleState) { 
   }
-
+  
+  ngOnInit(): void {
+    this.people.getPeople().subscribe((people) => {
+      this.dataList = people;
+      console.log('PEOPLE -->', this.dataList.results)
+    })
+  }
 }
+

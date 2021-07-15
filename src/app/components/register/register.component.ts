@@ -38,8 +38,8 @@ export class RegisterComponent implements OnInit {
     // JSON simulando usuarios
 
     var userLogin = this.registerForm.value;
-    localStorage.setItem('user', JSON.stringify(userLogin))
     usersList.push(userLogin)
+    localStorage.setItem('user', JSON.stringify(usersList))
     console.log('User Register -->', usersList)
     this.router.navigate(['/principal/ships'])
 

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { ShipsService } from 'src/app/services/ships.service';
+import { ShipsState } from '../../store/reducers/ships.reducer';
 
 import { ShipsComponent } from './ships.component';
 
@@ -29,7 +29,7 @@ describe('ShipsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ShipsComponent,MockShipDetails ],
       providers:[
-        {provide: ShipsService, useValue: serviceMock} 
+        {provide: ShipsState, useValue: serviceMock} 
       ]
     })
     .compileComponents();
