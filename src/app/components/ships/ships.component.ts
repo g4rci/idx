@@ -15,7 +15,7 @@ export class ShipsComponent implements OnInit {
   ngOnInit(): void {
     this.ships.getShips().subscribe((ships) => {
       this.dataList = ships;
-      console.log('SHIPS -->', this.dataList.results)
+      console.log('SHIPS -->', this.dataList)
     })
   }
 }

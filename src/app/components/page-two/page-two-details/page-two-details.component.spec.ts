@@ -1,13 +1,13 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 
-import { PageOneDetailsComponent } from './page-two-details.component';
+import { PageTwoDetailsComponent } from './page-two-details.component';
 import { PaginationControlsComponent } from 'ngx-pagination';
 import { Component, Pipe, PipeTransform } from '@angular/core';
 
 describe('ShipsDetailsComponent', () => {
-  let component: PageOneDetailsComponent;
-  let fixture: ComponentFixture<PageOneDetailsComponent>;
+  let component: PageTwoDetailsComponent;
+  let fixture: ComponentFixture<PageTwoDetailsComponent>;
 
   @Component({
     selector: 'pagination-controls',
@@ -25,13 +25,13 @@ describe('ShipsDetailsComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
-      declarations: [ PageOneDetailsComponent, MockPaginationControls, MockPipe ]
+      declarations: [ PageTwoDetailsComponent, MockPaginationControls, MockPipe ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PageOneDetailsComponent);
+    fixture = TestBed.createComponent(PageTwoDetailsComponent);
     component = fixture.componentInstance;
     component.dataList = {};
     fixture.detectChanges();

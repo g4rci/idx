@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { forkJoin, Observable } from 'rxjs';
 
 export interface Ships {
   count: number;
@@ -35,7 +35,13 @@ export interface Result {
   providedIn: 'root',
 })
 export class ShipsState {
-  url: string = 'https://swapi.dev/api/starships/';
+  public data = [];
+  
+  url = 'https://swapi.dev/api/starships/?page=1';
+  url2 = 'https://swapi.dev/api/starships/?page=2';
+  url3 = 'https://swapi.dev/api/starships/?page=3';
+  url4 = 'https://swapi.dev/api/starships/?page=4';
+  
   headerDict = {
     Authorization: 'none',
     'Access-Control-Allow-Origin': '*',
@@ -43,14 +49,39 @@ export class ShipsState {
   requestOptions = {
     headers: new HttpHeaders(this.headerDict),
   };
-
+  
   constructor(private http: HttpClient) {}
 
-  getShips(): Observable<any> {
-    return this.http.get(this.url).pipe(
+
+  // getShips(): Observable<any> {
+  //   return this.http.get(this.url).pipe(
+  //     map((data) => {
+  //       return data;
+  //     })
+  //   );
+  //  }
+
+  getShips(): Observable<any>{
+    return forkJoin(
+      this.http.get(this.url),
+      this.http.get(this.url2),
+      this.http.get(this.url3),
+      this.http.get(this.url4)
+    ).pipe(
       map((data) => {
-        return data;
+        let data1 = data[0].results
+        let data2 = data[1].results
+        let data3 = data[2].results
+        let data4 = data[3].results
+        let allData = [data1, data2, data3, data4].reduce((a, b) => {
+          return a.concat(b)
+        })
+        return allData
       })
-    );
+    )
   }
+
+   
 }
+
+
