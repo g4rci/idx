@@ -26,15 +26,19 @@ export class RegisterComponent implements OnInit {
       last_name: [ '', [Validators.required, Validators.minLength(3)]],
       username: [ '', [Validators.required, Validators.minLength(3)]],
       email: [ '', [Validators.required, Validators.minLength(6)]],
+      pasword: [ '', [Validators.required, Validators.minLength(4)]],
 
     })
   }
 
   registerUser() {
     if (this.registerForm.invalid) { return }
+
     // TODO : Falta integrar el servicio para registrar al usuario
     // JSON simulando usuarios
+
     var userLogin = this.registerForm.value;
+    localStorage.setItem('user', JSON.stringify(userLogin))
     usersList.push(userLogin)
     console.log('User Register -->', usersList)
     this.router.navigate(['/principal/ships'])

@@ -60,6 +60,21 @@
                         <i>Email is required</i>
                     </span>
                 </div>
+                <div class="form-group mt-5" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                    <!-- <label for="password">Password</label> -->
+                    <input
+                        type="password"
+                        name="password"
+                        class="form-control"
+                        placeholder="pasword"
+                        formControlName="pasword" />
+                        <hr class="hr-line">
+                        <div class="input-group-append form__required" *ngIf="registerForm.get('pasword').invalid">
+                            <span class="colorInvalid">
+                                <i>Pasword is required</i>
+                            </span>
+                        </div>
+                </div>
         </div>
         <div class="buttons">
             <button type="submit" [disabled]="registerForm.invalid" class="btn buttons__login">Register</button>

@@ -18,15 +18,19 @@ export class LoginComponent implements OnInit {
   unregistered: boolean = false;
   invalid: boolean = false;
 
+  user: any;
+
   constructor(
     private fb: FormBuilder,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.user = JSON.parse(localStorage.getItem('user'))
+
     this.loginForm = this.fb.group({
       username: [ '', [Validators.required, Validators.minLength(3)]],
-      password: [ '', [Validators.required, Validators.minLength(6)]]
+      password: [ '', [Validators.required, Validators.minLength(4)]]
     })
   }
   loginUser() {
@@ -34,10 +38,15 @@ export class LoginComponent implements OnInit {
     // TODO : Falta integrar el servicio para autentificar al usuario
     // JSON simulando usuarios
     var userLogin = this.loginForm.value.username;
-    var filterJson = this.users.filter(function (user) { return user.first_name === userLogin  });
-    if (filterJson.length > 0) {
+    //var filterJson = this.users.filter(function (user) { return user.first_name === userLogin  });
+  //   if (filterJson.length > 0) {
+  //     this.router.navigate(['/principal/ships'])
+  //   } else {
+  //     this.unregistered = true;
+  //   }
+    if (this.user.username === userLogin){
       this.router.navigate(['/principal/ships'])
-    } else {
+    }else {
       this.unregistered = true;
     }
   }
