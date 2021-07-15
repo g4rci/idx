@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ShipsService } from '../../store/reducers/ships.reducer';
+import { Ships, ShipsState } from '../../store/reducers/ships.reducer';
 
 @Component({
   selector: 'app-ships',
@@ -8,12 +8,12 @@ import { ShipsService } from '../../store/reducers/ships.reducer';
 })
 export class ShipsComponent implements OnInit {
 
-  public dataList: any = [];
+  public dataList: Ships[] = [];
 
-  constructor( private shipsService: ShipsService) {}
+  constructor( private ships: ShipsState) {}
 
   ngOnInit(): void {
-    this.shipsService.getShips().subscribe((ships) => {
+    this.ships.getShips().subscribe((ships) => {
       this.dataList = ships;
       console.log('SHIPS -->', this.dataList.results)
     })
