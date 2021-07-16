@@ -11,7 +11,7 @@ export class PageOneDetailsComponent implements OnInit {
 
   @Input() dataList: any;
   config: any;
-  shipId: string = '';
+  peopleId: string = '';
   url: string = '';
   // Modal
   titleDetails: string = '';
@@ -29,10 +29,11 @@ export class PageOneDetailsComponent implements OnInit {
       };
   }
 
-  getStarshipId(url) {
-    this.shipId = url.slice(0, -1)
-    const urlImage = `${this.shipId}.jpg`
-    return urlImage !== "";
+  getPeoplepId(url) {
+    this.peopleId = url.slice(-2,-1)
+    const urlImage = `https://starwars-visualguide.com/assets/img/characters/${this.peopleId}.jpg`
+    console.log(urlImage);
+    return urlImage;
   }
 
   pageChanged(event){

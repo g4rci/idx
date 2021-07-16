@@ -30,9 +30,9 @@ export class PageTwoDetailsComponent implements OnInit {
   }
 
   getPlanetId(url) {
-    this.shipId = url.slice(0, -1)
-    const urlImage = `${this.shipId}.jpg`
-    return urlImage !== "";
+    this.shipId = url.slice(-2, -1)
+    const urlImage = `https://starwars-visualguide.com/assets/img/planets/${this.shipId}.jpg`
+    return urlImage;
   }
 
   pageChanged(event){
