@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   dataLoading: boolean = false;
-  users: any = usersList;
+  users: any = JSON.parse(localStorage.getItem('user'));
   unregistered: boolean = false;
   invalid: boolean = false;
 
@@ -26,8 +26,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.user = JSON.parse(localStorage.getItem('user'))
-
+  console.log(this.users);
     this.loginForm = this.fb.group({
       username: [ '', [Validators.required, Validators.minLength(3)]],
       password: [ '', [Validators.required, Validators.minLength(4)]]
@@ -38,12 +37,12 @@ export class LoginComponent implements OnInit {
     // TODO : Falta integrar el servicio para autentificar al usuario
     // JSON simulando usuarios
     var userLogin = this.loginForm.value.username;
-    //var filterJson = this.users.filter(function (user) { return user.first_name === userLogin  });
-  //   if (filterJson.length > 0) {
-  //     this.router.navigate(['/principal/ships'])
-  //   } else {
-  //     this.unregistered = true;
-  //   }
+    var filterJson = this.users.filter(function (user) { return user.username === userLogin  });
+    if (filterJson.length > 0) {
+      this.router.navigate(['/principal/ships'])
+    } else {
+      this.unregistered = true;
+    }
     if (this.user.username === userLogin){
       this.router.navigate(['/principal/ships'])
     }else {

@@ -15,7 +15,7 @@ export class PageTwoComponent implements OnInit {
   ngOnInit(): void {
     this.planets.getPlanets().subscribe((planet) => {
       this.dataList = planet;
-      console.log('PLANETS -->', this.dataList.results)
+      console.log('PLANETS -->', this.dataList)
     })
   }
 

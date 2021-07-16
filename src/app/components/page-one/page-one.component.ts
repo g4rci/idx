@@ -16,7 +16,7 @@ export class PageOneComponent implements OnInit {
   ngOnInit(): void {
     this.people.getPeople().subscribe((people) => {
       this.dataList = people;
-      console.log('PEOPLE -->', this.dataList.results)
+      console.log('PEOPLE -->', this.dataList)
     })
   }
 }

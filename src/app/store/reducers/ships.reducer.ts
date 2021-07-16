@@ -68,7 +68,7 @@ export class ShipsState {
       this.http.get(this.url3),
       this.http.get(this.url4)
     ).pipe(
-      map((data) => {
+      map((data: any) => {
         let data1 = data[0].results
         let data2 = data[1].results
         let data3 = data[2].results
