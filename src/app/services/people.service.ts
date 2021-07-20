@@ -38,7 +38,7 @@ export enum Gender {
 @Injectable({
     providedIn: 'root'
   })
-  export class PeopleState {
+  export class PeopleService {
   
     url: string = 'https://swapi.dev/api/people/'
     headerDict = {

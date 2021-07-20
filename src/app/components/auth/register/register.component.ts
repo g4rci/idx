@@ -38,6 +38,7 @@ export class RegisterComponent implements OnInit {
     // JSON simulando usuarios
 
     var userLogin = this.registerForm.value;
+    
     usersList.push(userLogin)
     localStorage.setItem('user', JSON.stringify(usersList))
     console.log('User Register -->', usersList)

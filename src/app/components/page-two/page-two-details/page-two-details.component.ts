@@ -11,7 +11,7 @@ export class PageTwoDetailsComponent implements OnInit {
 
   @Input() dataList: any;
   config: any;
-  shipId: string = '';
+  planetId: string = '';
   url: string = '';
   // Modal
   titleDetails: string = '';
@@ -30,8 +30,8 @@ export class PageTwoDetailsComponent implements OnInit {
   }
 
   getPlanetId(url) {
-    this.shipId = url.slice(-2, -1)
-    const urlImage = `https://starwars-visualguide.com/assets/img/planets/${this.shipId}.jpg`
+    this.planetId = url.slice(30, -1)
+    const urlImage = `https://starwars-visualguide.com/assets/img/planets/${this.planetId}.jpg`
     return urlImage;
   }
 

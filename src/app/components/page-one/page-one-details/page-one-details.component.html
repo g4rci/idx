@@ -1,7 +1,7 @@
 <pagination-controls (pageChange)="pageChanged($event)" class="text-center"></pagination-controls>
 <div class="ship" *ngFor="let people of dataList.results | paginate: config; ; let i = index" (click)="openDetails(people)">
     <div class="panel-heading">
-        <h3 class="panel-title">{{people.name}}</h3>
+        <h3 class="panel-title text-center">{{people.name}}</h3>
     </div>
     <div class="panel-body text-center color">
         <img [src]="getPeoplepId(people.url)" onError="this.src='assets/img/errorImg_x3.svg'" class="imgSize">

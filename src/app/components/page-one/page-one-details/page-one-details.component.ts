@@ -30,9 +30,8 @@ export class PageOneDetailsComponent implements OnInit {
   }
 
   getPeoplepId(url) {
-    this.peopleId = url.slice(-2,-1)
+    this.peopleId = url.slice(29,-1)
     const urlImage = `https://starwars-visualguide.com/assets/img/characters/${this.peopleId}.jpg`
-    console.log(urlImage);
     return urlImage;
   }
 

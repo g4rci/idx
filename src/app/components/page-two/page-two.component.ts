@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Planets, PlanetState } from 'src/app/store/reducers/planet.reducer';
+import { Planets, PlanetService } from '../../services/planet.service';
 
 @Component({
   selector: 'app-page-two',
@@ -10,7 +10,7 @@ export class PageTwoComponent implements OnInit {
 
   public dataList: Planets[] = [];
 
-  constructor(private planets: PlanetState) { }
+  constructor(private planets: PlanetService) { }
 
   ngOnInit(): void {
     this.planets.getPlanets().subscribe((planet) => {

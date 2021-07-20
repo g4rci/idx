@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { People, PeopleState } from '../../store/reducers/people.reducer';
+import { People, PeopleService } from '../../services/people.service';
 
 @Component({
   selector: 'app-page-one',
@@ -10,7 +10,7 @@ export class PageOneComponent implements OnInit {
 
   public dataList: People[] = [];
 
-  constructor( private people: PeopleState) { 
+  constructor( private people: PeopleService) { 
   }
   
   ngOnInit(): void {

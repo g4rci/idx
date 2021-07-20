@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { ShipsState } from '../../store/reducers/ships.reducer';
+import { ShipsState } from '../../services/reducers/ships.reducer';
 
 import { ShipsComponent } from './ships.component';
 

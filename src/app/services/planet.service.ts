@@ -30,7 +30,7 @@ export interface Result {
 @Injectable({
   providedIn: 'root',
 })
-export class PlanetState {
+export class PlanetService {
   url: string = 'https://swapi.dev/api/planets/';
   headerDict = {
     Authorization: 'none',
