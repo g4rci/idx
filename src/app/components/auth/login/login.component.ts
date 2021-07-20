@@ -5,10 +5,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   loginForm: FormGroup;
   dataLoading: boolean = false;
   users: any = JSON.parse(localStorage.getItem('user'));
@@ -17,38 +16,33 @@ export class LoginComponent implements OnInit {
 
   user: any;
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-  ) { }
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      username: [ '', [Validators.required, Validators.minLength(3)]],
-      password: [ '', [Validators.required, Validators.minLength(4)]]
-    })
-    
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      password: ['', [Validators.required, Validators.minLength(4)]],
+    });
   }
-  
+
   // loginUser(){
   //   this.auth.loginU()
   // }
 
   loginUser() {
-    if (this.loginForm.invalid) { return }
+    if (this.loginForm.invalid) {
+      return;
+    }
     // TODO : Falta integrar el servicio para autentificar al usuario
     // JSON simulando usuarios
     var userLogin = this.loginForm.value.username;
-    var filterJson = this.users.filter(function (user) { return user.username === userLogin  });
+    var filterJson = this.users.filter(function (user) {
+      return user.username === userLogin;
+    });
     console.log(filterJson);
     if (filterJson.length > 0) {
-      this.router.navigate(['/principal/ships'])
+      this.router.navigate(['/principal/ships']);
     } else {
-      this.unregistered = true;
-    }
-    if (filterJson.username === userLogin){
-      this.router.navigate(['/principal/ships'])
-    }else {
       this.unregistered = true;
     }
   }

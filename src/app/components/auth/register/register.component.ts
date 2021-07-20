@@ -3,7 +3,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 // JSON
-import usersList from 'src/assets/json/users.json';
+// import usersList from 'src/assets/json/users.json';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
   dataLoading: boolean = false;
+  userList: any[]
 
   constructor(
     private fb: FormBuilder,
@@ -39,9 +40,10 @@ export class RegisterComponent implements OnInit {
 
     var userLogin = this.registerForm.value;
     
-    usersList.push(userLogin)
-    localStorage.setItem('user', JSON.stringify(usersList))
-    console.log('User Register -->', usersList)
+    this.userList = JSON.parse(localStorage.getItem('user'));
+    this.userList.push(userLogin)
+    localStorage.setItem('user', JSON.stringify(this.userList))
+    console.log('User Register -->', this.userList)
     this.router.navigate(['/principal/ships'])
 
   }
