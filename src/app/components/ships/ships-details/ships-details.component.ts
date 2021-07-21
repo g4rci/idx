@@ -38,16 +38,16 @@ export class ShipsDetailsComponent implements OnInit {
     };
   }
 
-  enviarPage(){
-    this.page.emit(this.config.currentPage)
-  }
   
   getStarshipId(url) {
     this.shipId = url.slice(32, -1);
     const urlImage = `https://starwars-visualguide.com/assets/img/starships/${this.shipId}.jpg`;
     this.config.totalItems = this.dataList.count
-    console.log('this.ships.shipsPage', this.ships.shipsPage);
     return urlImage;
+  }
+  
+  enviarPage(){
+    this.page.emit(this.config.currentPage)
   }
   
   pageChanged(event) {

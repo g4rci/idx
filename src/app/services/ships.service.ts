@@ -55,8 +55,8 @@ export class ShipsService {
   
 
 
-  getShips(page: number): Observable<any> {
-    return this.http.get(`${this.url}${page}`)
+  getShips(action): Observable<any> {
+    return this.http.get(`${this.url}${action}`)
     .pipe(
       map((data) => {
         return data;

@@ -12,8 +12,10 @@ import { AuthModule } from './components/auth/auth-module.module';
 import { HttpClientModule } from '@angular/common/http';
 
 //ngrx
-import { shipsReducer } from './store/ships.reducer';
+import { ShipsReducer } from './store/ships.reducers';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { ShipsEffects } from './store/ships.effects';
 
 
 
@@ -31,7 +33,8 @@ import { StoreModule } from '@ngrx/store';
     PrincipalModule,
     AuthModule,
     HttpClientModule,
-    StoreModule.forRoot({ships: shipsReducer})
+    StoreModule.forRoot({ships: ShipsReducer}),
+    EffectsModule.forRoot( [ShipsEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
