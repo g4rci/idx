@@ -5,19 +5,5 @@
         "username":"PacoRuiz",
         "email":"paco@paco.es",
         "password":"1234"
-    },
-    {
-        "first_name":"Pepe",
-        "last_name":"Sanchez",
-        "username":"PepeSanchez",
-        "email":"pepe@pepe.es",
-        "password":"1234"
-    },
-    {
-        "first_name":"lolo",
-        "last_name":"Garcia",
-        "username":"LoloGarcia",
-        "email":"lolo@lolo.es",
-        "password":"1234"
     }
 ]

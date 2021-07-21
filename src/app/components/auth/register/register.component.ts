@@ -3,7 +3,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 // JSON
-// import usersList from 'src/assets/json/users.json';
+import usersListJson from 'src/assets/json/users.json';
 
 @Component({
   selector: 'app-register',
