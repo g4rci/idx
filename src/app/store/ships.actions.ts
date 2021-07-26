@@ -13,7 +13,7 @@ export class GetShipsAction implements Action {
 // Action to check request was successful
 export class GetShipsSuccessAction implements Action {
   readonly type = GET_SHIPS_SUCCESS;
-  constructor(public payload: {ships_content: any; error?: {} }) {}
+  constructor(public payload: {ships_content: any; page: any; error?: {} }) { }
 }
 
 // Action for failure to People receive data

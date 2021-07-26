@@ -1370,6 +1370,13 @@
     "merge-source-map" "^1.1.0"
     "schema-utils" "^2.7.0"
 
+"@ngrx/component-store@^12.2.0":
+  "integrity" "sha512-RTCe1kOctJGUOBmIZAeYkoK/2g01AZK2GubpL1GixS/NbvvoFSFDya031HuwwVFtXBfwPZxWVL0QHyG29egf/w=="
+  "resolved" "https://registry.npmjs.org/@ngrx/component-store/-/component-store-12.2.0.tgz"
+  "version" "12.2.0"
+  dependencies:
+    "tslib" "^2.0.0"
+
 "@ngrx/effects@^12.2.0":
   "integrity" "sha512-TyXsUnUWiK7k9qq+Upw7NsvnOtxw1txvAjYhVI3PHLuiDyCtvcrpWHliKC/vsAiINJSytaUdVJu+wCQe3J/z4A=="
   "resolved" "https://registry.npmjs.org/@ngrx/effects/-/effects-12.2.0.tgz"

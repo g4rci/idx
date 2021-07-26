@@ -20,6 +20,7 @@ export function ShipsReducer(state = initialShipsState, action: fromShips.ShipsA
         // Turn loading off as data is received
         ...state,
         ships_content: action.payload.ships_content,
+        page: action.payload.page,
         error: action.payload.error,
         loading: false,
       };

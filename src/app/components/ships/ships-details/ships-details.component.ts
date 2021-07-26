@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { ShipsService } from '../../../services/ships.service';
-import { ShipsComponent } from '../ships.component';
 declare var $: any;
 
 @Component({
@@ -24,7 +24,7 @@ export class ShipsDetailsComponent implements OnInit {
   modelDetails: string = '';
   starship_class: string = '';
   
-  constructor( public ships: ShipsService ) {
+  constructor( public ships: ShipsService, private rutaActiva: ActivatedRoute ) {
     this.page = new EventEmitter()
   }
   
@@ -33,7 +33,7 @@ export class ShipsDetailsComponent implements OnInit {
 
     this.config = {
       itemsPerPage: 10,
-      currentPage: this.config.currentPage,
+      currentPage: 1,
       totalItems: this.dataList.count,
     };
   }
@@ -48,6 +48,7 @@ export class ShipsDetailsComponent implements OnInit {
   
   enviarPage(){
     this.page.emit(this.config.currentPage)
+    
   }
   
   pageChanged(event) {

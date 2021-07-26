@@ -39,9 +39,9 @@ export class ShipsService {
   public data = [];
   public shipsPage = 1;
 
-  
-  private url = 'https://swapi.dev/api/starships/?page=';
-  
+  public url = 'https://swapi.dev/api/starships/?page=';
+  public finaUrl = `${this.url}${this.shipsPage}`
+
   headerDict = {
     Authorization: 'none',
     'Access-Control-Allow-Origin': '*',
@@ -49,20 +49,14 @@ export class ShipsService {
   requestOptions = {
     headers: new HttpHeaders(this.headerDict),
   };
-  
-  constructor(private http: HttpClient ) {}
 
-  
+  constructor(private http: HttpClient) {}
 
-
-  getShips(action): Observable<any> {
-    return this.http.get(`${this.url}${action}`)
-    .pipe(
-      map((data) => {
-        return data;
-      })
-      );
-    }   
+  // getShips(action): Observable<any> {
+  //   return this.http.get(`${this.url}${action}`).pipe(
+  //     map((data) => {
+  //       return data;
+  //     })
+  //   );
+  //}
 }
-
-
