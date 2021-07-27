@@ -1,6 +1,6 @@
 import { ActionReducer, Action } from '@ngrx/store';
 import * as fromShips from './ships.actions';
-import { ShipsState, initialShipsState } from './ships.state';
+import { ShipsState, initialShipsState } from './ships.selectors';
 
 
 

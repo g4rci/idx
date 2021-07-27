@@ -24,6 +24,7 @@
     "@ngrx/component-store": "^12.2.0",
     "@ngrx/effects": "^12.2.0",
     "@ngrx/store": "^12.2.0",
+    "@ngrx/store-devtools": "^12.3.0",
     "@popperjs/core": "^2.4.4",
     "bootstrap": "^4.5.0",
     "jest-marbles": "^2.5.1",

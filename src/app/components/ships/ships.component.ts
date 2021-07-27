@@ -1,8 +1,12 @@
 import { state } from '@angular/animations';
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { ReducerManager, Store, State } from '@ngrx/store';
+import { ReducerManager, Store, State, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ShipsState } from 'src/app/store/ships.state';
+import {
+  getShipsData,
+  selectShipsData,
+  ShipsState,
+} from '../../store/ships.selectors';
 import { ShipsService } from '../../services/ships.service';
 
 import * as shipsActions from '../../store/ships.actions';
@@ -19,18 +23,23 @@ export class ShipsComponent implements OnInit {
 
   ships$: Observable<any>;
 
-  constructor(
-    public ships: ShipsService,
-    private store: Store<ShipsState>,
-  ) {}
+  constructor(public ships: ShipsService, private store: Store<ShipsState>) {}
 
   ngOnInit(): void {
-    this.ships$ = this.store;
-
-    this.ships$.subscribe((data) => {
-      this.dataList = data.ships.ships_content;
-      this.page = data.ships.page
+    this.store
+    .select(getShipsData)
+    .subscribe((state) => {
+      this.dataList = state;
+      this.page = 1;
     });
+    
+    // this.ships$ = this.store
+
+    // this.ships$.subscribe((data) => {
+    //   this.dataList = data.ships.ships_content;
+    //   this.page = 1;
+    //   console.log('data', data);
+    // });
     this.store.dispatch(new shipsActions.GetShipsAction());
     // this.ships.getShips(1).subscribe((ships) => {
     //   this.dataList = ships;
@@ -40,13 +49,13 @@ export class ShipsComponent implements OnInit {
 
   recibirPage(page) {
     this.page = page;
-    
+
     this.store.dispatch(
       new shipsActions.GetShipsSuccessAction({
         ships_content: this.dataList,
         page: this.page,
       })
-      );
-    this.store.dispatch(new shipsActions.GetShipsAction());    
+    );
+    this.store.dispatch(new shipsActions.GetShipsAction());
   }
 }

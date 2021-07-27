@@ -1,4 +1,4 @@
-import { initialShipsState, ShipsState } from './ships.state';
+import { initialShipsState, ShipsState } from './ships.selectors';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Action, State, Store } from '@ngrx/store';

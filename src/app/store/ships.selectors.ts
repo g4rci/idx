@@ -1,17 +1,21 @@
-import { createSelector } from "@ngrx/store";
-import { Ships } from "../services/ships.service";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-export interface ShipsState{
-    ships: Ships;
-}
+export interface ShipsState {
+    ships_content?: any;
+    error?: any;
+    loading?: boolean;
+    page: any;
+  }
+  
+  export const initialShipsState: ShipsState = {
+    ships_content: [],
+    loading: false,
+    page: 1,
+  };
 
-export interface AppState {
-    shipsState: ShipsState;
-}
-
-export const selectState = ( state : AppState ) => state.shipsState;
+export const getShipsData = (state) => state.ships.ships_content
 
 export const selectShipsData = createSelector(
-    selectState,
-    (state: ShipsState) => state.ships
+    getShipsData,
+    (state: ShipsState) => state
 )
